@@ -1,0 +1,47 @@
+import java.util.*;
+class Student 
+{
+    private int regNo;
+    private String name, dept, phNo;
+    void setRegNo(int regNo) 
+    {
+        this.regNo = regNo;
+    }
+    int getRegNo() 
+    {
+        return regNo;
+    }
+    void setName(String name) 
+    {
+        this.name = name;
+    }
+    String getName() 
+    {
+        return name;
+    }
+    void setDept(String dept) 
+    {
+        this.dept = dept;
+    }
+    String getDept() 
+    {
+        return dept;
+    }
+    void setPhNo(String phNo) 
+    {
+        this.phNo = phNo;
+    }
+    String getPhNo() 
+    {
+        return phNo;
+    }
+}
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		Student std1 = new Student();
+		std1.setRegNo(1);
+		System.out.println(std1.getRegNo());
+	}
+}
