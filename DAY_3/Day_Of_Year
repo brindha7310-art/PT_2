@@ -1,0 +1,23 @@
+import java.util.Scanner;
+class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        int date = sc.nextInt();
+        int month = sc.nextInt();
+        int year = sc.nextInt();
+        int days = 0;
+        int[] monthDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) 
+        {
+            monthDays[1] = 29;
+        }
+        for (int i = 0; i < month - 1; i++) 
+        {
+            days = days + monthDays[i];
+        }
+        days = days + date;
+        System.out.println(days);
+    }
+}
