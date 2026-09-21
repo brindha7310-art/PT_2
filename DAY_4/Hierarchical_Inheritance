@@ -1,0 +1,37 @@
+mport java.util.*;
+
+class Student {
+    protected int regNo;
+    protected String name;
+    
+    void fun1() {
+        System.out.println(regNo + " " + name);
+    }
+}
+
+class Trainer extends Student {
+    String trainerName;
+    
+    void fun2() {
+        System.out.println(trainerName);
+    }
+}
+
+class Hod extends Student {
+    String hodName;
+    
+    void fun3() {
+        System.out.println(hodName);
+    }
+}
+
+public class Main {
+	public static void main(String[] args) {
+		Hod objHod = new Hod();
+		objHod.regNo = 1;
+		objHod.name = "Student Name";
+		objHod.hodName = "HOD Name";
+		objHod.fun1();
+		objHod.fun3();
+	}
+}
