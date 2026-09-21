@@ -1,0 +1,33 @@
+import java.util.*;
+public class Main 
+{
+    public static void left(char ch[]) 
+    {
+        int length = ch.length;
+        char temp = ch[0];
+	    for(int i=0;i<length-1;i++)
+	    {
+	       ch[i]= ch[i+1];
+	    }
+	    ch[length-1]=temp;
+    }
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		String str1 = sc.next();
+		String str2 = sc.next();
+		char ch1[] = str1.toCharArray();
+		char ch2[] = str2.toCharArray();
+		int rot = str1.length();
+		while(rot != 0) 
+		{
+		    left(ch1);
+		    if(Arrays.equals(ch1, ch2)) 
+		    {
+		        System.out.print("Yes");
+		        return;
+		    }
+		    rot--;
+		}
+		System.out.print("No");
+	}
