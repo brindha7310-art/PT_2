@@ -1,0 +1,49 @@
+import java.util.*;
+public class Main 
+{
+    static int ones(int num) 
+    {
+        int rem, cnt = 0;
+        while(num != 0) 
+        {
+            rem = num % 2;
+            if(rem == 1)
+            {
+                cnt++;
+            }
+            num /= 2;
+        }
+        return cnt;
+    }
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int arr[] = new int[N];
+		for(int i=0;i<N;i++)
+		{
+		    arr[i] = sc.nextInt();
+		}
+		int tc = sc.nextInt();
+	    while(tc != 0) 
+	    {
+	        int max = 0, pos = 0;
+	        for(int i=0;i<N;i++) 
+	        {
+	            int curr = ones(arr[i]);
+	            if(max < curr) 
+	            {
+	                max = curr;
+	                pos = i;
+	            }
+	            else if(max==curr && arr[pos]<arr[i])
+	            {
+	                pos = i;
+	            }
+	        }
+	        System.out.print(arr[pos] + " ");
+	        arr[pos] = 0;
+	        tc--;
+	    }
+	}
+}
