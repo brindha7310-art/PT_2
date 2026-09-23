@@ -1,0 +1,90 @@
+import java.util.*;
+class Calander 
+{
+    private int date, month, year;
+    Calander() 
+    {
+        this.date = 0;
+        this.month = 0;
+        this.year = 0;
+    }
+    Calander(int date, int month, int year) 
+    {
+        this.date = date;
+        this.month = month;
+        this.year = year;
+    }
+    public int completeDays(Calander obj) 
+    {
+        int sum = 0;
+        for(int itr=1;itr<obj.month;itr++) 
+        {
+            if(itr==1 || itr==3 || itr==5 || itr==7 || itr==8 || itr==10 || itr==12)
+            {
+                sum += 31;
+            }
+            else if(itr==4 || itr==6 || itr==9 || itr==11)
+            {
+                sum += 30;
+            }
+            else 
+            {
+                if(obj.year%4==0 && obj.year%100!=0 || obj.year%400==0)
+                {
+                    sum += 29;
+                }
+                else
+                {
+                    sum += 28;
+                }
+            }
+        }
+        sum += obj.date;
+        return sum;
+    }
+    
+    public int days(Calander obj1, Calander obj2) 
+    {
+        int rem = 0, sum = 0;
+        for(int itr=(obj1.year+1);itr<(obj2.year);itr++) 
+        {
+            if(itr%4==0 && itr%100!=0 || itr%400==0)
+            {
+                sum += 366;
+            }
+            else
+            {
+                sum += 365;
+            }
+        }
+        if(obj1.year%4==0 && obj1.year%100!=0 || obj1.year%400==0)
+        {
+            rem += 366;
+        }
+        else
+        {
+            rem += 365;
+        }
+        sum = sum + (rem - completeDays(obj1)) + 1;
+        sum += completeDays(obj2);
+        return sum;
+    }
+}
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		int dd1,mm1,yy1,dd2,mm2,yy2;
+		dd1 = sc.nextInt();
+		mm1 = sc.nextInt();
+		yy1 = sc.nextInt();
+		dd2 = sc.nextInt();
+		mm2 = sc.nextInt();
+		yy2 = sc.nextInt();
+		Calander obj = new Calander();
+		Calander obj1 = new Calander(dd1, mm1, yy1);
+		Calander obj2 = new Calander(dd2, mm2, yy2);
+		System.out.print(obj.days(obj1, obj2));
+	}
+}
