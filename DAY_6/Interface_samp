@@ -1,0 +1,19 @@
+import java.util.*;
+interface Bank 
+{
+    public int fun(int a, int b);
+}
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+	    Bank bankObj = new Bank() 
+	    {
+	        public int fun(int a, int b) 
+	        {
+	            return a+b;
+	        } 
+	    };
+	    System.out.println(bankObj.fun(10, 20));
+	}
+}
